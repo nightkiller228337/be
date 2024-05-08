@@ -1,0 +1,71 @@
+﻿<Window x:Class="Dip.Windows.AddPrWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Dip.Windows"
+        mc:Ignorable="d"
+        Title="AddPrWindow" Height="500" Width="920" Background="#fbf5e7">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="15*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="13,0,0,30">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="3">
+                <TextBlock Text="Название:" Margin="3" FontSize="15" Foreground="#34526a" Height="50" FontFamily="Comic Sans Ms"></TextBlock>
+                <TextBox Name="TbName" Text="{Binding Name, Mode=TwoWay}" Margin="3" FontSize="15" Padding="2" FontFamily="Comic Sans Ms" TextWrapping="Wrap" Foreground="#34526a" Width="350" TextChanged="TbName_TextChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="3">
+                <TextBlock Text="Количество:" Margin="3" FontSize="15" Foreground="#34526a" FontFamily="Comic Sans Ms"></TextBlock>
+                <TextBox Name="TbQuan" Margin="3" Text="{Binding QuantityInTotal, Mode=TwoWay}" FontSize="15" Padding="2" FontFamily="Comic Sans Ms" Foreground="#34526a" Width="350"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="3">
+                <TextBlock Text="Артикул:" Margin="3" FontSize="15" Foreground="#34526a" FontFamily="Comic Sans Ms"></TextBlock>
+                <TextBox Name="TbArticle" Margin="3" Text="{Binding Article, Mode=TwoWay}" FontSize="15" Padding="2" FontFamily="Comic Sans Ms" Foreground="#34526a" Width="350"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="3">
+                <TextBlock Text="Цена (р.):" Margin="3" FontSize="15" Foreground="#34526a" FontFamily="Comic Sans Ms"></TextBlock>
+                <TextBox Name="TbPrice" Margin="3" Text="{Binding Price, Mode=TwoWay}" FontSize="15" Padding="2" FontFamily="Comic Sans Ms" Foreground="#34526a" Width="350" ></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="3">
+                <TextBlock Text="Производитель:" Margin="3" FontSize="15" Foreground="#34526a" FontFamily="Comic Sans Ms"></TextBlock>
+                <ComboBox Name="CbManuf" DisplayMemberPath="ManufacturerName"  SelectedIndex="0" Margin="3"  FontSize="15" Padding="2" FontFamily="Comic Sans Ms" Foreground="#34526a" Width="350"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="3">
+                <TextBlock Text="Страна:" Margin="3" FontSize="15" Foreground="#34526a" FontFamily="Comic Sans Ms"></TextBlock>
+                <ComboBox Name="CbCountry" SelectedIndex="0" DisplayMemberPath="CountryName" Margin="3" FontSize="15" Padding="2" FontFamily="Comic Sans Ms" Foreground="#34526a" Width="350"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="3">
+                <TextBlock Text="Категория:" Margin="3" FontSize="15" Foreground="#34526a" FontFamily="Comic Sans Ms"></TextBlock>
+                <ComboBox Name="CbType" Margin="3" SelectedIndex="0" DisplayMemberPath="TypeName" FontSize="15" Padding="2" FontFamily="Comic Sans Ms" Foreground="#34526a" Width="350"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="3">
+                <TextBlock Text="Склад:" Margin="3" FontSize="15" Foreground="#34526a" FontFamily="Comic Sans Ms"></TextBlock>
+                <ComboBox Name="CbStorage" Margin="3" SelectedIndex="0" DisplayMemberPath="Adress" FontSize="15" Padding="2" FontFamily="Comic Sans Ms" Foreground="#34526a" Width="350"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="3">
+                <TextBlock Text="Кол-во на складе:" Margin="3" FontSize="15" Foreground="#34526a" FontFamily="Comic Sans Ms"></TextBlock>
+                <TextBox Name="TbQuanInStock" Margin="3" Text="{Binding quantityInStock.quantity, Mode=TwoWay}" FontSize="15" Padding="2" FontFamily="Comic Sans Ms" Foreground="#34526a" Width="350" ></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="3">
+                <TextBlock Text="Кол-во на складе:" Margin="3" FontSize="15" Foreground="#34526a" FontFamily="Comic Sans Ms"></TextBlock>
+                <TextBox Name="TbSection" Margin="3" Text="{Binding section, Mode=TwoWay}" FontSize="15" Padding="2" FontFamily="Comic Sans Ms" Foreground="#34526a" Width="350" ></TextBox>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Column="1" VerticalAlignment="Bottom" Margin="10, 0,300,10" >
+            <Button Name="BtnSave" Content="Сохранить" HorizontalAlignment="Left" FontSize="16" Foreground="#34526a" Width="180" Height="36" FontFamily="Comic Sans Ms" Click="BtnSave_Click"></Button>
+        </StackPanel>
+        <StackPanel Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" >
+            <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" Name="ImgDef" Width="350" Height="300" MaxHeight="300" MaxWidth="350">
+                <Image.Source>
+                    <Binding Path="">
+                        <Binding.TargetNullValue>
+                            <ImageSource>/Res/i.png</ImageSource>
+                        </Binding.TargetNullValue>
+                    </Binding>
+                </Image.Source>
+            </Image>
+        </StackPanel>
+    </Grid>
+</Window>
